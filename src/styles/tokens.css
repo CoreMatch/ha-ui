@@ -1,0 +1,96 @@
+/* @ha/ui design tokens — the single source of truth for the HA desktop
+   clients (MatchCoreArena-Client, SamuelClient). Dark only.
+
+   Art direction: competitive arena, not admin dashboard. Near-black cool
+   base, ONE accent color, hard 1px borders, no shadows, no glass, no
+   gradients. Big mono numerals for anything the player cares about.
+
+   Naming contract: the raw custom properties are `--ha-*` (stable, do not
+   rename without a migration note in README.md). The `@theme inline` block
+   maps them onto Tailwind v4 utility names (bg-panel, text-ink-muted,
+   border-edge, ...). Consumers import this file once, AFTER
+   `@import "tailwindcss"`, and add `@source "../node_modules/@ha/ui/src";`
+   to their CSS entry so Tailwind scans the component sources. */
+
+:root {
+  /* ---- Surfaces (cool near-black ladder) ---- */
+  --ha-base: #0a0c10;          /* page background */
+  --ha-panel: #10141a;         /* cards / panels */
+  --ha-raised: #171d26;        /* raised insets, hover rows */
+  --ha-edge: #232b37;          /* standard 1px border */
+  --ha-edge-strong: #344152;   /* emphasized border (inputs, active) */
+
+  /* ---- Text ---- */
+  --ha-ink: #e9edf3;           /* primary text */
+  --ha-ink-muted: #96a1b3;     /* secondary text */
+  --ha-ink-faint: #5c6879;     /* hints, overlines, disabled */
+
+  /* ---- Accent (single) ---- */
+  --ha-accent: #e94560;
+  --ha-accent-hover: #d63a54;
+  --ha-on-accent: #ffffff;
+
+  /* ---- Semantic state hues (one per intent, used sparingly) ---- */
+  --ha-ok: #4caf50;
+  --ha-warn: #f59e0b;
+  --ha-danger: #ef5350;
+  --ha-info: #3b82f6;
+
+  /* ---- Data-viz: rank metals (not semantic) ---- */
+  --ha-gold: #ffd700;
+  --ha-silver: #c0c0c0;
+  --ha-bronze: #cd7f32;
+
+  /* ---- Shape ---- */
+  --ha-radius-md: 8px;
+  --ha-radius-lg: 12px;
+
+  /* ---- Motion: one curve, one duration, minimal use ---- */
+  --ha-duration: 150ms;
+  --ha-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Z-index tiers ---- */
+  --ha-z-dropdown: 40;
+  --ha-z-overlay: 50;
+  --ha-z-modal: 60;
+}
+
+@theme inline {
+  /* Colors → bg-*/panel/raised/base, text-ink*, border-edge*, etc. */
+  --color-base: var(--ha-base);
+  --color-panel: var(--ha-panel);
+  --color-raised: var(--ha-raised);
+  --color-edge: var(--ha-edge);
+  --color-edge-strong: var(--ha-edge-strong);
+  --color-ink: var(--ha-ink);
+  --color-ink-muted: var(--ha-ink-muted);
+  --color-ink-faint: var(--ha-ink-faint);
+  --color-accent: var(--ha-accent);
+  --color-accent-hover: var(--ha-accent-hover);
+  --color-on-accent: var(--ha-on-accent);
+  --color-ok: var(--ha-ok);
+  --color-warn: var(--ha-warn);
+  --color-danger: var(--ha-danger);
+  --color-info: var(--ha-info);
+  --color-gold: var(--ha-gold);
+  --color-silver: var(--ha-silver);
+  --color-bronze: var(--ha-bronze);
+
+  /* Shape */
+  --radius-md: var(--ha-radius-md);
+  --radius-lg: var(--ha-radius-lg);
+
+  /* Type: ladder 12/14/16/20/28 plus two display steps for hero numerals.
+     (xs/sm/base/xl come from Tailwind's defaults.) */
+  --text-display: 28px;
+  --text-display--line-height: 34px;
+  --text-hero: 40px;
+  --text-hero--line-height: 44px;
+
+  /* Fonts (bundled locally by the consumer via @fontsource) */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  /* Motion */
+  --ease-standard: var(--ha-ease);
+}
