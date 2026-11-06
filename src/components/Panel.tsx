@@ -6,6 +6,7 @@ export function Panel({ className = '', ...rest }: HTMLAttributes<HTMLDivElement
 }
 
 // Raised inset inside a panel (address boxes, handoff blocks, ...).
+// Background contrast only — no frame (borders stay restrained).
 export function Inset({ className = '', ...rest }: HTMLAttributes<HTMLDivElement>) {
-  return <div className={`bg-raised border border-edge rounded-md ${className}`} {...rest} />;
+  return <div className={`bg-raised rounded-md ${className}`} {...rest} />;
 }

@@ -15,11 +15,11 @@ export function EmptyState({
   action?: ReactNode;
 }) {
   return (
-    <div className="px-6 py-10 text-center">
-      {icon && <div className="mb-3 flex justify-center text-ink-faint">{icon}</div>}
-      <div className="text-base font-semibold text-ink-muted">{title}</div>
-      {hint && <div className="mx-auto mt-1 max-w-md text-sm text-ink-faint">{hint}</div>}
-      {action && <div className="mt-4 flex justify-center">{action}</div>}
+    <div className="px-8 py-16 text-center">
+      {icon && <div className="mb-4 flex justify-center text-ink-faint">{icon}</div>}
+      <div className="text-lg font-semibold text-ink-muted">{title}</div>
+      {hint && <div className="mx-auto mt-2 max-w-md text-base leading-relaxed text-ink-faint">{hint}</div>}
+      {action && <div className="mt-6 flex justify-center">{action}</div>}
     </div>
   );
 }
@@ -37,15 +37,15 @@ export function ErrorState({
   retryLabel?: string;
 }) {
   return (
-    <div className="px-6 py-10 text-center">
-      <div className="mb-3 flex justify-center text-danger">
-        <TriangleAlert size={34} strokeWidth={1.5} aria-hidden />
+    <div className="px-8 py-16 text-center">
+      <div className="mb-4 flex justify-center text-danger">
+        <TriangleAlert size={40} strokeWidth={1.5} aria-hidden />
       </div>
-      <div className="mx-auto max-w-lg text-sm leading-relaxed text-ink-muted">{message}</div>
-      {detail && <div className="mt-2 break-all text-xs text-ink-faint">{detail}</div>}
+      <div className="mx-auto max-w-lg text-base leading-relaxed text-ink-muted">{message}</div>
+      {detail && <div className="mt-2 break-all text-sm text-ink-faint">{detail}</div>}
       {onRetry && (
-        <div className="mt-4 flex justify-center">
-          <Button variant="outline" size="sm" onClick={onRetry}>
+        <div className="mt-6 flex justify-center">
+          <Button variant="outline" onClick={onRetry}>
             {retryLabel}
           </Button>
         </div>

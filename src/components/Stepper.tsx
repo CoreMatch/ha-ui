@@ -10,22 +10,22 @@ export interface StepperProps {
 // Completed = filled check, active = accent outline, ahead = dim.
 export function Stepper({ steps, active }: StepperProps) {
   return (
-    <ol className="flex w-full items-center gap-2">
+    <ol className="flex w-full items-center gap-3">
       {steps.map((label, i) => {
         const done = i < active;
         const current = i === active;
         return (
-          <li key={label} className="flex flex-1 items-center gap-2">
+          <li key={label} className="flex flex-1 items-center gap-3">
             <span
-              className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-md border font-mono text-xs font-bold
+              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md border font-mono text-sm font-bold
                 ${done ? 'border-accent bg-accent text-on-accent' : ''}
                 ${current ? 'border-accent text-accent' : ''}
                 ${!done && !current ? 'border-edge text-ink-faint' : ''}`}
             >
-              {done ? <Check size={14} strokeWidth={2.5} aria-hidden /> : i + 1}
+              {done ? <Check size={16} strokeWidth={2.5} aria-hidden /> : i + 1}
             </span>
             <span
-              className={`hidden text-xs font-semibold uppercase tracking-wider sm:block
+              className={`hidden text-sm font-semibold uppercase tracking-wide sm:block
                 ${current ? 'text-ink' : done ? 'text-ink-muted' : 'text-ink-faint'}`}
             >
               {label}

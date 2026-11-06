@@ -9,10 +9,10 @@ export function Menu({ trigger, children }: { trigger: ReactNode; children: Reac
       <DropdownMenuPrimitive.Trigger asChild>{trigger}</DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Portal>
         <DropdownMenuPrimitive.Content
-          sideOffset={6}
+          sideOffset={8}
           align="end"
           style={{ zIndex: tokens.zIndex.dropdown }}
-          className="min-w-48 overflow-hidden rounded-md border border-edge bg-panel p-1"
+          className="min-w-56 overflow-hidden rounded-md border border-edge bg-panel p-1.5"
         >
           {children}
         </DropdownMenuPrimitive.Content>
@@ -28,7 +28,7 @@ export function MenuItem({
   return (
     <DropdownMenuPrimitive.Item
       onSelect={onSelect}
-      className="flex cursor-pointer items-center gap-2 rounded px-3 py-2 text-sm text-ink
+      className="flex cursor-pointer items-center gap-3 rounded px-3.5 py-2.5 text-base text-ink
         outline-none data-[highlighted]:bg-raised"
     >
       {children}

@@ -23,9 +23,9 @@ export function Banner({
 }) {
   return (
     <div
-      className={`flex items-start justify-between gap-3 rounded-md border px-4 py-3 text-sm ${tones[tone]} ${className}`}
+      className={`flex items-start justify-between gap-4 rounded-md border px-5 py-4 text-base leading-relaxed ${tones[tone]} ${className}`}
     >
-      <div className="leading-relaxed">{children}</div>
+      <div>{children}</div>
       {action && <div className="shrink-0">{action}</div>}
     </div>
   );

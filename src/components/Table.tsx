@@ -9,12 +9,12 @@ export function Table({ className = '', ...rest }: HTMLAttributes<HTMLTableEleme
 export function Th({ className = '', ...rest }: ThHTMLAttributes<HTMLTableCellElement>) {
   return (
     <th
-      className={`border-b border-edge px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-ink-faint ${className}`}
+      className={`border-b border-edge px-5 py-4 text-left text-sm font-semibold uppercase tracking-wide text-ink-faint ${className}`}
       {...rest}
     />
   );
 }
 
 export function Td({ className = '', ...rest }: TdHTMLAttributes<HTMLTableCellElement>) {
-  return <td className={`border-b border-edge/70 px-4 py-3.5 align-middle ${className}`} {...rest} />;
+  return <td className={`border-b border-edge/50 px-5 py-5 align-middle text-base ${className}`} {...rest} />;
 }

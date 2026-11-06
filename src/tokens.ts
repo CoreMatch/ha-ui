@@ -25,11 +25,14 @@ export const tokens = {
     silver: '#c0c0c0',
     bronze: '#cd7f32',
   },
-  // Allowed spacing values in px (Tailwind: 1/2/3/4/6).
-  spacing: [4, 8, 12, 16, 24] as const,
+  // Allowed spacing values in px — roomy by design (Tailwind units in
+  // parens). Prefer scrolling over squeezing: when in doubt, go up a step.
+  spacing: [8, 12, 16, 24, 32, 48] as const,
   radius: { md: 8, lg: 12 },
-  // Type ladder in px: 12/14/16/20/28 + display steps for hero numerals.
-  fontSize: { xs: 12, sm: 14, md: 16, lg: 20, display: 28, hero: 40 },
+  // Type ladder in px: 14 secondary, 16 body, 20–24 section titles,
+  // 32 page titles, 52 hero numerals. 12 stays reserved for rare micro
+  // labels; 11px and below must not appear.
+  fontSize: { sm: 14, md: 16, section: 20, display: 32, hero: 52 },
   zIndex: { dropdown: 40, overlay: 50, modal: 60 },
   motion: { duration: '150ms', easing: 'cubic-bezier(0.4, 0, 0.2, 1)' },
 } as const;

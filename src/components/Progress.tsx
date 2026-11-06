@@ -13,7 +13,7 @@ export function Progress({ value, tone = 'accent', className = '' }: ProgressPro
   return (
     <ProgressPrimitive.Root
       value={value}
-      className={`h-2 w-full overflow-hidden rounded-md bg-raised ${className}`}
+      className={`h-2.5 w-full overflow-hidden rounded-md bg-raised ${className}`}
     >
       <ProgressPrimitive.Indicator
         className={`h-full rounded-md transition-[width] duration-150 ease-standard ${indicator}`}

@@ -1,6 +1,6 @@
 import { forwardRef, type InputHTMLAttributes, type ReactNode } from 'react';
 
-export const inputClass = `h-10 w-full rounded-md border border-edge-strong bg-base px-3 text-sm text-ink
+export const inputClass = `h-12 w-full rounded-md border border-edge-strong bg-base px-4 text-base text-ink
   placeholder:text-ink-faint outline-none transition-colors duration-150 ease-standard
   focus:border-accent disabled:opacity-40`;
 
@@ -14,7 +14,7 @@ export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputE
 export function Field({ label, children, className = '' }: { label: string; children: ReactNode; className?: string }) {
   return (
     <label className={`block ${className}`}>
-      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-ink-faint">
+      <span className="mb-2 block text-sm font-semibold uppercase tracking-wide text-ink-faint">
         {label}
       </span>
       {children}

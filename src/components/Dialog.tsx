@@ -27,14 +27,14 @@ export function Dialog({ open, onClose, title, children, footer, wide = false }:
             overflow-y-auto rounded-lg border border-edge bg-panel ${wide ? 'max-w-3xl' : 'max-w-xl'}`}
           style={{ zIndex: tokens.zIndex.modal }}
         >
-          <div className="flex items-center justify-between border-b border-edge px-6 py-4">
-            <DialogPrimitive.Title className="text-lg font-bold text-ink">{title}</DialogPrimitive.Title>
-            <DialogPrimitive.Close className="rounded-md p-1.5 text-ink-faint transition-colors duration-150 hover:bg-raised hover:text-ink">
-              <X size={18} strokeWidth={1.75} aria-hidden />
+          <div className="flex items-center justify-between border-b border-edge px-8 py-5">
+            <DialogPrimitive.Title className="text-xl font-bold text-ink">{title}</DialogPrimitive.Title>
+            <DialogPrimitive.Close className="rounded-md p-2 text-ink-faint transition-colors duration-150 hover:bg-raised hover:text-ink">
+              <X size={20} strokeWidth={1.75} aria-hidden />
             </DialogPrimitive.Close>
           </div>
-          <div className="px-6 py-5">{children}</div>
-          {footer && <div className="flex justify-end gap-2 border-t border-edge px-6 py-4">{footer}</div>}
+          <div className="px-8 py-6">{children}</div>
+          {footer && <div className="flex justify-end gap-3 border-t border-edge px-8 py-5">{footer}</div>}
         </DialogPrimitive.Content>
       </DialogPrimitive.Portal>
     </DialogPrimitive.Root>

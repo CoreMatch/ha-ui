@@ -25,12 +25,25 @@ shadows, no glass, no gradients, near-zero motion.
 | `--ha-ok` / `warn` / `danger` / `info` | `#4caf50` / `#f59e0b` / `#ef5350` / `#3b82f6` | semantic | one hue per state intent |
 | `--ha-gold` / `silver` / `bronze` | `#ffd700` / `#c0c0c0` / `#cd7f32` | metals | rank data-viz only |
 
-Spacing ladder: **4/8/12/16/24 px** (Tailwind `1/2/3/4/6`). Radius: **8/12**
-(`rounded-md`/`rounded-lg`). Type ladder: **12/14/16/20/28** (`text-xs` →
-`text-display`) plus `text-hero` (40px) for hero numerals. Z tiers:
-dropdown 40 / overlay 50 / modal 60 (`tokens.zIndex`). Motion: one curve
-`cubic-bezier(0.4,0,0.2,1)` @ 150ms (`ease-standard`, `duration-150`) —
-only for required state transitions (queue phase changes, loading fades).
+Spacing ladder: **8/12/16/24/32/48 px** (Tailwind `2/3/4/6/8/12`) — roomy
+by design; prefer scrolling over squeezing. Page margins 40–48, section
+gaps 32+, inner element gaps 12–24. Radius: **8/12**
+(`rounded-md`/`rounded-lg`).
+
+Type ladder: **14** secondary (`text-sm`), **16** body (`text-base`),
+**20–24** section titles (`text-xl`/`text-2xl`), **32** page titles
+(`text-display`), **52** hero numerals (`text-hero`). 12px is reserved
+for rare micro labels; 11px and below must not appear.
+
+Controls are heavy: buttons 36/48/56 px, inputs/selects 48 px, table
+rows ~60 px. Z tiers: dropdown 40 / overlay 50 / modal 60
+(`tokens.zIndex`). Motion: one curve `cubic-bezier(0.4,0,0.2,1)` @
+150ms (`ease-standard`, `duration-150`) — only for required state
+transitions (queue phase changes, loading fades).
+
+Borders are restrained: panels keep one hard border; inner elements
+(chips, address boxes, stat rows) rely on background contrast, not
+frames; tables use faint row dividers only.
 
 Renaming any `--ha-*` token is a breaking change: both clients consume the
 same names.

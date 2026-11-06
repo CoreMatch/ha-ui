@@ -22,7 +22,7 @@ export function Stat({
   }[tone];
   return (
     <div>
-      <div className="text-xs font-semibold uppercase tracking-wider text-ink-faint">{label}</div>
+      <div className="text-sm font-semibold uppercase tracking-wide text-ink-faint">{label}</div>
       <div
         className={`font-mono font-bold tabular-nums ${toneClass} ${
           size === 'hero' ? 'text-hero' : 'text-display'

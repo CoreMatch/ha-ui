@@ -54,7 +54,6 @@
   --ha-z-overlay: 50;
   --ha-z-modal: 60;
 }
-
 @theme inline {
   /* Surface / text / accent / semantic / metal color utilities */
   --color-base: var(--ha-base);
@@ -80,12 +79,13 @@
   --radius-md: var(--ha-radius-md);
   --radius-lg: var(--ha-radius-lg);
 
-  /* Type: ladder 12/14/16/20/28 plus two display steps for hero numerals.
-     (xs/sm/base/xl come from Tailwind's defaults.) */
-  --text-display: 28px;
-  --text-display--line-height: 34px;
-  --text-hero: 40px;
-  --text-hero--line-height: 44px;
+  /* Type: body starts at 16, secondary 14; section titles 20–24 (Tailwind
+     xl/2xl), page titles 32 (display), hero numerals 52. Anything that
+     used to be 11–12px either moves up to 14 or gets deleted. */
+  --text-display: 32px;
+  --text-display--line-height: 38px;
+  --text-hero: 52px;
+  --text-hero--line-height: 56px;
 
   /* Fonts (bundled locally by the consumer via @fontsource) */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
