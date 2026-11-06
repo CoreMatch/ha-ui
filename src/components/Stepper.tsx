@@ -1,14 +1,18 @@
 import { Check } from 'lucide-react';
+import type { ReactNode } from 'react';
 
 export interface StepperProps {
   steps: string[];
   // Index of the active step; steps before it render as completed.
   active: number;
+  // Optional per-step graphics (e.g. the flow assets); they replace the
+  // plain numbers on upcoming/active nodes. Completed nodes keep the check.
+  icons?: ReactNode[];
 }
 
 // Stepper: hard-edged phase indicator for the matchmaking cycle.
 // Completed = filled check, active = accent outline, ahead = dim.
-export function Stepper({ steps, active }: StepperProps) {
+export function Stepper({ steps, active, icons }: StepperProps) {
   return (
     <ol className="flex w-full items-center gap-3">
       {steps.map((label, i) => {
@@ -22,7 +26,7 @@ export function Stepper({ steps, active }: StepperProps) {
                 ${current ? 'border-accent text-accent' : ''}
                 ${!done && !current ? 'border-edge text-ink-faint' : ''}`}
             >
-              {done ? <Check size={16} strokeWidth={2.5} aria-hidden /> : i + 1}
+              {done ? <Check size={16} strokeWidth={2.5} aria-hidden /> : icons?.[i] ?? i + 1}
             </span>
             <span
               className={`hidden text-sm font-semibold uppercase tracking-wide sm:block

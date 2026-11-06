@@ -28,3 +28,7 @@ export type { StepperProps } from './components/Stepper';
 export { EmptyState, ErrorState } from './components/States';
 export { Table, Th, Td } from './components/Table';
 export { Icon } from './components/Icon';
+
+// Bundled ha-assets library (manifest ids are the stable keys).
+export { Asset, patternStyle } from './assets/Asset';
+export type { AssetId } from './assets/Asset';
