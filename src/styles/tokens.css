@@ -56,7 +56,7 @@
 }
 
 @theme inline {
-  /* Colors → bg-*/panel/raised/base, text-ink*, border-edge*, etc. */
+  /* Surface / text / accent / semantic / metal color utilities */
   --color-base: var(--ha-base);
   --color-panel: var(--ha-panel);
   --color-raised: var(--ha-raised);
