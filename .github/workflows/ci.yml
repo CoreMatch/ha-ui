@@ -1,0 +1,30 @@
+# Minimal CI for @ha/ui. The package is consumed as TypeScript source by
+# SamuelClient and MatchCoreArena-Client (git submodule at vendor/ha-ui +
+# file: link), so the only gate here is that the sources type-check with the
+# declared dependencies installed. The consumers' own pipelines build and
+# render the code; this one catches breakage at the source.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
