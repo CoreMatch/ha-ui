@@ -50,11 +50,26 @@ same names.
 
 ## Consumer wiring (Vite + Tailwind v4)
 
-1. Depend on the package by path:
+Consumers embed this repository as a git submodule at `vendor/ha-ui` and
+depend on it through a repo-relative `file:` link — no registry, no
+assumptions about where checkouts live on disk:
+
+```sh
+git submodule add https://github.com/CoreMatch/ha-ui.git vendor/ha-ui
+```
+
+1. Depend on the package by path (relative to the consumer's
+   `frontend/package.json`):
 
    ```json
-   "dependencies": { "@ha/ui": "file:/home/lnb/Desktop/HA/ha-ui" }
+   "dependencies": { "@ha/ui": "file:../vendor/ha-ui" }
    ```
+
+   Fresh clones need `git clone --recurse-submodules` (or
+   `git submodule update --init`). Editing files inside `vendor/ha-ui`
+   is picked up by the consumer immediately (the `file:` link is a
+   symlink); push ha-ui changes from inside the submodule, then commit
+   the updated submodule pointer in the consumer.
 
 2. `vite.config.ts`: add `@tailwindcss/vite` to `plugins`.
 
